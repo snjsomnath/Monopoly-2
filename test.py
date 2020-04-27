@@ -194,7 +194,7 @@ fig.add_trace(
 fig.add_trace(
     go.Scatter(
     x=df['Game No'], 
-    y=df['Nithin'], name="Nithin",line_shape='spline',connectgaps=True,showlegend=False),
+    y=df['SugaDaddy'], name="Nithin",line_shape='spline',connectgaps=True,showlegend=False),
     row=7, col=1
 )
 
@@ -247,7 +247,7 @@ fig.add_trace(
 fig.add_trace(
     go.Scatter(
     x=df_rank['Game No'], 
-    y=df_rank['Nithin'], name = 'Nithin',line_shape='spline',connectgaps=True),
+    y=df_rank['SugaDaddy'], name = 'Nithin',line_shape='spline',connectgaps=True),
     row=1,col=2
 )
 
