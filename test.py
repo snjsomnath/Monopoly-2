@@ -124,7 +124,7 @@ merging = pd.concat([data_r, ocr], join = "outer")
 print(merging)
 
 merging.to_csv(r"rank.csv", index=False)
-
+"""
 #dashboard stuff
 df = pd.read_csv('data.csv')
 df_rank = pd.read_csv("rank.csv")
@@ -261,4 +261,4 @@ fig.add_trace(
 
 fig.update_layout(height=800, width=1024, title_text="Monopoly Tracking Dashboard")
 fig.show()
-
+"""
