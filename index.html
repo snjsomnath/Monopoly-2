@@ -6,18 +6,82 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
   <title>Monopoly Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div>
-    <canvas id="SanjayChart" height=40%></canvas>
-    <canvas id="thamarmoChart" height=40%></canvas>
-    <canvas id="AbhishekChart" height=40%></canvas>
-    <canvas id="ShishtaoukChart" height=40%></canvas>
-    <canvas id="NipPincherChart" height=40%></canvas>
-    <canvas id="SpartanChart" height=40%></canvas>
-    <canvas id="DirajChart" height=40%></canvas>
-    <canvas id="SugaDaddyChart" height=40%></canvas>
+  <div class="grid-container">
+    <header class="header">
+      <h1>Monopoly Dashboard</h1>
+    </header>
+    <main class="main">
+
+      <style>
+        .main-cards {
+          column-count: 3;
+          column-gap: 10px;
+          margin: 10px;
+        }
+        
+        .card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: auto;
+          background-color: #ffffff;
+          margin-bottom: 10px;
+          -webkit-column-break-inside: avoid;
+          padding: 10px;
+          box-sizing: border-box;
+        }
+      
+        /* Force varying heights to simulate dynamic content */
+        .card:first-child {
+
+          height: 100%;
+        }
+      
+        .card:nth-child(2) {
+
+          height: 100%;
+        }
+      
+        .card:nth-child(3) {
+
+          height: 100%;
+        }
+      </style>
+      
+      <div class="main-cards">
+        <div class="card">
+          <canvas id="SanjayChart" height=100%></canvas>
+          <canvas id="thamarmoChart" height=100%></canvas>
+          <canvas id="AbhishekChart" height=100%></canvas>
+          <canvas id="ShishtaoukChart" height=100%></canvas>
+        </div>
+        <div class="card">
+          <canvas id="NipPincherChart" height=100%></canvas>
+          <canvas id="SpartanChart" height=100%></canvas>
+          <canvas id="DirajChart" height=100%></canvas>
+          <canvas id="SugaDaddyChart" height=100%></canvas>
+        </div>
+        <div class="card">
+          <canvas id="rankTracking" height=190%></canvas>
+        </div>
+        <div class="card">
+          <canvas id="wealthTracking" height=190%></canvas>
+        </div>
+
+      </div>
+    </main>
+    <footer class="footer">
+      <a href="https://github.com/snjsomnath/Monopoly-2">Github Project Link</a>
+    </footer>
+  
+
   </div>
+
+
   <script>
     const xlabels = [];
     const ySanjay = [];
@@ -28,6 +92,17 @@
     const ySpartan = [];
     const yDiraj = [];
     const ySugaDaddy = [];
+    const xlabels_r = [];
+    const ySanjay_r = [];
+    const ythamarmo_r = [];
+    const yAbhishek_r = [];
+    const yShishtaouk_r = [];
+    const yNipPincher_r = [];
+    const ySpartan_r = [];
+    const yDiraj_r = [];
+    const ySugaDaddy_r = [];
+    const lineColor = 'rgba(0, 229, 177, 1)'
+    const bgColor = 'rgba(77, 77, 77, 1)'
 
 
     chartIt();
@@ -43,12 +118,34 @@
                 {
                   label: 'Sanjay Wealth',
                   data: ySanjay,
-                  backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                  borderColor: 'rgba(255, 99, 132, 1)',
+                  backgroundColor: bgColor,
+                  borderColor: lineColor,
                   fill: false,
                   borderWidth: 1
               }]
           },
+          options:{
+            title:{
+              display: true,
+              text: 'Sanjay Wealth'
+            },
+            legend:{
+              display: false
+            },
+            scales: {
+              yAxes: [{
+                stacked: false,
+                ticks: {
+                  fontSize: 10
+                }
+              }],
+              xAxes: [{
+                ticks: {
+                  fontSize: 10
+                }
+              }]
+            }
+          }
       });
       const ctx2 = document.getElementById('thamarmoChart').getContext('2d');
       const myChart2 = new Chart(ctx2, {
@@ -59,12 +156,34 @@
                 {
                   label: 'Thamar Wealth',
                   data: ythamarmo,
-                  backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                  borderColor: 'rgba(255, 99, 132, 1)',
+                  backgroundColor: bgColor,
+                  borderColor: lineColor,
                   fill: false,
                   borderWidth: 1
               }]
           },
+          options:{
+            title:{
+              display: true,
+              text: 'Thamar Wealth'
+            },
+            legend:{
+              display: false
+            },
+            scales: {
+              yAxes: [{
+                stacked: false,
+                ticks: {
+                  fontSize: 10
+                }
+              }],
+              xAxes: [{
+                ticks: {
+                  fontSize: 10
+                }
+              }]
+            }
+          }
       });
       const ctx3 = document.getElementById('AbhishekChart').getContext('2d');
       const myChart3 = new Chart(ctx3, {
@@ -75,12 +194,34 @@
                 {
                   label: 'Abhishek Wealth',
                   data: yAbhishek,
-                  backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                  borderColor: 'rgba(255, 99, 132, 1)',
+                  backgroundColor: bgColor,
+                  borderColor: lineColor,
                   fill: false,
                   borderWidth: 1
               }]
           },
+          options:{
+            title:{
+              display: true,
+              text: 'Abhishek Wealth'
+            },
+            legend:{
+              display: false
+            },
+            scales: {
+              yAxes: [{
+                stacked: false,
+                ticks: {
+                  fontSize: 10
+                }
+              }],
+              xAxes: [{
+                ticks: {
+                  fontSize: 10
+                }
+              }]
+            }
+          }
       });
       const ctx4 = document.getElementById('ShishtaoukChart').getContext('2d');
       const myChart4 = new Chart(ctx4, {
@@ -91,12 +232,34 @@
                 {
                   label: 'Shishir Wealth',
                   data: yShishtaouk,
-                  backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                  borderColor: 'rgba(255, 99, 132, 1)',
+                  backgroundColor: bgColor,
+                  borderColor: lineColor,
                   fill: false,
                   borderWidth: 1
               }]
           },
+          options:{
+            title:{
+              display: true,
+              text: 'Shishir Wealth'
+            },
+            legend:{
+              display: false
+            },
+            scales: {
+              yAxes: [{
+                stacked: false,
+                ticks: {
+                  fontSize: 10
+                }
+              }],
+              xAxes: [{
+                ticks: {
+                  fontSize: 10
+                }
+              }]
+            }
+          }
       });
       const ctx5 = document.getElementById('NipPincherChart').getContext('2d');
       const myChart5 = new Chart(ctx5, {
@@ -107,12 +270,34 @@
                 {
                   label: 'Nivin Wealth',
                   data: yNipPincher,
-                  backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                  borderColor: 'rgba(255, 99, 132, 1)',
+                  backgroundColor: bgColor,
+                  borderColor: lineColor,
                   fill: false,
                   borderWidth: 1
               }]
           },
+          options:{
+            title:{
+              display: true,
+              text: 'Nivin Wealth'
+            },
+            legend:{
+              display: false
+            },
+            scales: {
+              yAxes: [{
+                stacked: false,
+                ticks: {
+                  fontSize: 10
+                }
+              }],
+              xAxes: [{
+                ticks: {
+                  fontSize: 10
+                }
+              }]
+            }
+          }
       });
       const ctx6 = document.getElementById('SpartanChart').getContext('2d');
       const myChart6 = new Chart(ctx6, {
@@ -123,12 +308,34 @@
                 {
                   label: 'Hrideek Wealth',
                   data: ySpartan,
-                  backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                  borderColor: 'rgba(255, 99, 132, 1)',
+                  backgroundColor: bgColor,
+                  borderColor: lineColor,
                   fill: false,
                   borderWidth: 1
               }]
           },
+          options:{
+            title:{
+              display: true,
+              text: 'Hrideek Wealth'
+            },
+            legend:{
+              display: false
+            },
+            scales: {
+              yAxes: [{
+                stacked: false,
+                ticks: {
+                  fontSize: 10
+                }
+              }],
+              xAxes: [{
+                ticks: {
+                  fontSize: 10
+                }
+              }]
+            }
+          }
       });
       const ctx7 = document.getElementById('DirajChart').getContext('2d');
       const myChart7 = new Chart(ctx7, {
@@ -139,12 +346,34 @@
                 {
                   label: 'Diraj Wealth',
                   data: yDiraj,
-                  backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                  borderColor: 'rgba(255, 99, 132, 1)',
+                  backgroundColor: bgColor,
+                  borderColor: lineColor,
                   fill: false,
                   borderWidth: 1
               }]
           },
+          options:{
+            title:{
+              display: true,
+              text: 'Diraj Wealth'
+            },
+            legend:{
+              display: false
+            },
+            scales: {
+              yAxes: [{
+                stacked: false,
+                ticks: {
+                  fontSize: 10
+                }
+              }],
+              xAxes: [{
+                ticks: {
+                  fontSize: 10
+                }
+              }]
+            }
+          }
       });
       const ctx8 = document.getElementById('SugaDaddyChart').getContext('2d');
       const myChart8 = new Chart(ctx8, {
@@ -155,20 +384,208 @@
                 {
                   label: 'Nithin Wealth',
                   data: ySugaDaddy,
-                  backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                  borderColor: 'rgba(255, 99, 132, 1)',
+                  backgroundColor: bgColor,
+                  borderColor: lineColor,
                   fill: false,
                   borderWidth: 1
               }]
           },
+          options:{
+            title:{
+              display: true,
+              text: 'Nithin Wealth'
+            },
+            legend:{
+              display: false
+            },
+            scales: {
+              yAxes: [{
+                stacked: false,
+                ticks: {
+                  fontSize: 10
+                }
+              }],
+              xAxes: [{
+                ticks: {
+                  fontSize: 10
+                }
+              }]
+            }
+          }
+      });
+      const ctx9 = document.getElementById('rankTracking').getContext('2d');
+      const myChart9 = new Chart(ctx9, {
+          type: 'line',
+          data: {
+              labels: xlabels_r,
+              datasets: [{
+                label:'Sanjay',
+                data: ySanjay_r,
+                backgroundColor: 'crimson',
+                borderColor: 'crimson',
+                borderWidth: 1,
+                fill: false,
+              },{
+                label: 'Thamar',
+                data: ythamarmo_r,
+                backgroundColor: 'coral',
+                borderColor: 'coral',
+                borderWidth: 1,
+                fill: false,
+              },{
+                label: 'Abhishek',
+                data: yAbhishek_r,
+                backgroundColor: 'darkslateblue',
+                borderColor: 'darkslateblue',
+                borderWidth: 1,
+                fill: false,
+              },{
+                label: 'Shishir',
+                data: yShishtaouk_r,
+                backgroundColor: 'darksalmon',
+                borderColor: 'darksalmon',
+                borderWidth: 1,
+                fill: false,
+              },{
+                label: 'Nivin',
+                data: yNipPincher_r,
+                backgroundColor: 'deeppink',
+                borderColor: 'deeppink',
+                borderWidth: 1,
+                fill: false,
+              },{
+                label: 'Hrideek',
+                data: ySpartan_r,
+                backgroundColor: 'aquamarine',
+                borderColor: 'aquamarine',
+                borderWidth: 1,
+                fill: false,
+              },{
+                label: 'Diraj',
+                data: yDiraj_r,
+                backgroundColor: 'darkmargenta',
+                borderColor: 'darkmargenta',
+                borderWidth: 1,
+                fill: false,
+              },{
+                label: 'Nithin',
+                data: ySugaDaddy_r,
+                backgroundColor: 'lightblue',
+                borderColor: 'lightblue',
+                borderWidth: 1,
+                fill: false,
+              }]
+          },
+          options: {
+            title:{
+              display: true,
+              text: 'Rank Tracking'
+            },
+            legend : {
+              position: 'right',
+              labels:{
+                boxWidth: 3,
+                fontSize: 10,
+                padding: 5
+              }
+            },
+            scales: {
+              yAxes: [{
+                stacked: false,
+                ticks: {
+                  fontSize: 10
+                }
+              }],
+              xAxes: [{
+                ticks: {
+                  fontSize: 10
+                }
+              }]
+            }
+          }
+      });
+      const ctx10 = document.getElementById('wealthTracking').getContext('2d');
+      const myChart10 = new Chart(ctx10, {
+          type: 'bar',
+          data: {
+              labels: xlabels,
+              datasets: [{
+                label:'Sanjay',
+                data: ySanjay,
+                backgroundColor: 'crimson',
+                borderColor: 'crimson',
+              },{
+                label: 'Thamar',
+                data: ythamarmo,
+                backgroundColor: 'coral',
+                borderColor: 'coral',
+              },{
+                label: 'Abhishek',
+                data: yAbhishek,
+                backgroundColor: 'darkslateblue',
+                borderColor: 'darkslateblue',
+              },{
+                label: 'Shishir',
+                data: yShishtaouk,
+                backgroundColor: 'darksalmon',
+                borderColor: 'darksalmon',
+              },{
+                label: 'Nivin',
+                data: yNipPincher,
+                backgroundColor: 'deeppink',
+                borderColor: 'deeppink',
+              },{
+                label: 'Hrideek',
+                data: ySpartan,
+                backgroundColor: 'aquamarine',
+                borderColor: 'aquamarine',
+              },{
+                label: 'Diraj',
+                data: yDiraj,
+                backgroundColor: 'darkmargenta',
+                borderColor: 'darkmargenta',
+              },{
+                label: 'Nithin',
+                data: ySugaDaddy,
+                backgroundColor: 'lightblue',
+                borderColor: 'lightblue',
+              }]
+          },
+          options: {
+            title:{
+              display: true,
+              text: 'Wealth Tracking'
+            },
+            legend : {
+              position: 'right',
+              labels:{
+                boxWidth: 2,
+                fontSize: 10,
+                padding: 5
+              }
+            },
+            scales: {
+              yAxes: [{
+                stacked: false,
+                ticks: {
+                  fontSize: 10
+                }
+              }],
+              xAxes: [{
+                ticks: {
+                  fontSize: 10
+                }
+              }]
+            }
+          }
       });
     }
 
     //Parsing CSV data
     //To add new players, simply add a column and a const for their avatar name
     async function getData() {
-      const response = await fetch('data.csv');
-      const data = await response.text();
+      const response_w = await fetch('data.csv');
+      const data = await response_w.text();
 
 
       const table = data.split('\n').slice(1);
@@ -192,7 +609,34 @@
           ySugaDaddy.push(SugaDaddy)
           const Spartan = columns[8];
           ySpartan.push(Spartan)
-          console.log(gameNo, Sanjay);
+
+      });
+      const response_r = await fetch('rank.csv');
+      const rank = await response_r.text();
+
+
+      const table_r = rank.split('\n').slice(1);
+      table_r.forEach(row=> {
+          const columns_r = row.split(',');
+          const gameNo_r = columns_r[0];
+          xlabels_r.push(gameNo_r);
+          const Sanjay_r = columns_r[1];
+          ySanjay_r.push(Sanjay_r)
+          const thamarmo_r = columns_r[2];
+          ythamarmo_r.push(thamarmo_r)
+          const Abhishek_r = columns_r[3];
+          yAbhishek_r.push(Abhishek_r)
+          const Shishtaouk_r = columns_r[4];
+          yShishtaouk_r.push(Shishtaouk_r)
+          const NipPincher_r = columns_r[5];
+          yNipPincher_r.push(NipPincher_r)
+          const Diraj_r = columns_r[6];
+          yDiraj_r.push(Diraj_r)
+          const SugaDaddy_r = columns_r[7];
+          ySugaDaddy_r.push(SugaDaddy_r)
+          const Spartan_r = columns_r[8];
+          ySpartan_r.push(Spartan_r)
+          console.log(gameNo_r, Sanjay_r);
       });
     }
   </script>
