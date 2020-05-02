@@ -6,11 +6,14 @@ import sys
 import pandas as pd
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
+import csv
+import json
 
 import os
 
 check = pd.read_csv("latest.csv")
 latest_file = check.iloc[0,0]
+
 
 def newest(path):
     files = os.listdir(path)
@@ -124,6 +127,7 @@ merging = pd.concat([data_r, ocr], join = "outer")
 print(merging)
 
 merging.to_csv(r"rank.csv", index=False)
+
 """
 #dashboard stuff
 df = pd.read_csv('data.csv')

@@ -5,78 +5,196 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <title>Monopoly Dashboard</title>
 </head>
 <body>
-  <div class="container">
-    <canvas id="myChart"></canvas>
+  <div>
+    <canvas id="SanjayChart" height=40%></canvas>
+    <canvas id="thamarmoChart" height=40%></canvas>
+    <canvas id="AbhishekChart" height=40%></canvas>
+    <canvas id="ShishtaoukChart" height=40%></canvas>
+    <canvas id="NipPincherChart" height=40%></canvas>
+    <canvas id="SpartanChart" height=40%></canvas>
+    <canvas id="DirajChart" height=40%></canvas>
+    <canvas id="SugaDaddyChart" height=40%></canvas>
   </div>
-
   <script>
-    let myChart = document.getElementById('myChart').getContext('2d');
+    const xlabels = [];
+    const ySanjay = [];
+    const ythamarmo = [];
+    const yAbhishek = [];
+    const yShishtaouk = [];
+    const yNipPincher = [];
+    const ySpartan = [];
+    const yDiraj = [];
+    const ySugaDaddy = [];
 
-    // Global Options
-    Chart.defaults.global.defaultFontFamily = 'Lato';
-    Chart.defaults.global.defaultFontSize = 18;
-    Chart.defaults.global.defaultFontColor = '#777';
 
-    let massPopChart = new Chart(myChart, {
-      type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
-      data:{
-        labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
-        datasets:[{
-          label:'Population',
-          data:[
-            617594,
-            181045,
-            -153060,
-            106519,
-            105162,
-            95072
-          ],
-          //backgroundColor:'green',
-          backgroundColor:[
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(54, 162, 235, 0.6)',
-            'rgba(255, 206, 86, 0.6)',
-            'rgba(75, 192, 192, 0.6)',
-            'rgba(153, 102, 255, 0.6)',
-            'rgba(255, 159, 64, 0.6)',
-            'rgba(255, 99, 132, 0.6)'
-          ],
-          borderWidth:1,
-          borderColor:'#777',
-          hoverBorderWidth:3,
-          hoverBorderColor:'#000'
-        }]
-      },
-      options:{
-        title:{
-          display:true,
-          text:'Sanjay',
-          fontSize:25
-        },
-        legend:{
-          display:true,
-          position:'right',
-          labels:{
-            fontColor:'#000'
-          }
-        },
-        layout:{
-          padding:{
-            left:50,
-            right:0,
-            bottom:0,
-            top:0
-          }
-        },
-        tooltips:{
-          enabled:true
-        }
-      }
-    });
+    chartIt();
+        
+    async function chartIt() {
+      await getData();
+      const ctx = document.getElementById('SanjayChart').getContext('2d');
+      const myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+              labels: xlabels,
+              datasets: [
+                {
+                  label: 'Sanjay Wealth',
+                  data: ySanjay,
+                  backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                  borderColor: 'rgba(255, 99, 132, 1)',
+                  fill: false,
+                  borderWidth: 1
+              }]
+          },
+      });
+      const ctx2 = document.getElementById('thamarmoChart').getContext('2d');
+      const myChart2 = new Chart(ctx2, {
+          type: 'line',
+          data: {
+              labels: xlabels,
+              datasets: [
+                {
+                  label: 'Thamar Wealth',
+                  data: ythamarmo,
+                  backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                  borderColor: 'rgba(255, 99, 132, 1)',
+                  fill: false,
+                  borderWidth: 1
+              }]
+          },
+      });
+      const ctx3 = document.getElementById('AbhishekChart').getContext('2d');
+      const myChart3 = new Chart(ctx3, {
+          type: 'line',
+          data: {
+              labels: xlabels,
+              datasets: [
+                {
+                  label: 'Abhishek Wealth',
+                  data: yAbhishek,
+                  backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                  borderColor: 'rgba(255, 99, 132, 1)',
+                  fill: false,
+                  borderWidth: 1
+              }]
+          },
+      });
+      const ctx4 = document.getElementById('ShishtaoukChart').getContext('2d');
+      const myChart4 = new Chart(ctx4, {
+          type: 'line',
+          data: {
+              labels: xlabels,
+              datasets: [
+                {
+                  label: 'Shishir Wealth',
+                  data: yShishtaouk,
+                  backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                  borderColor: 'rgba(255, 99, 132, 1)',
+                  fill: false,
+                  borderWidth: 1
+              }]
+          },
+      });
+      const ctx5 = document.getElementById('NipPincherChart').getContext('2d');
+      const myChart5 = new Chart(ctx5, {
+          type: 'line',
+          data: {
+              labels: xlabels,
+              datasets: [
+                {
+                  label: 'Nivin Wealth',
+                  data: yNipPincher,
+                  backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                  borderColor: 'rgba(255, 99, 132, 1)',
+                  fill: false,
+                  borderWidth: 1
+              }]
+          },
+      });
+      const ctx6 = document.getElementById('SpartanChart').getContext('2d');
+      const myChart6 = new Chart(ctx6, {
+          type: 'line',
+          data: {
+              labels: xlabels,
+              datasets: [
+                {
+                  label: 'Hrideek Wealth',
+                  data: ySpartan,
+                  backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                  borderColor: 'rgba(255, 99, 132, 1)',
+                  fill: false,
+                  borderWidth: 1
+              }]
+          },
+      });
+      const ctx7 = document.getElementById('DirajChart').getContext('2d');
+      const myChart7 = new Chart(ctx7, {
+          type: 'line',
+          data: {
+              labels: xlabels,
+              datasets: [
+                {
+                  label: 'Diraj Wealth',
+                  data: yDiraj,
+                  backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                  borderColor: 'rgba(255, 99, 132, 1)',
+                  fill: false,
+                  borderWidth: 1
+              }]
+          },
+      });
+      const ctx8 = document.getElementById('SugaDaddyChart').getContext('2d');
+      const myChart8 = new Chart(ctx8, {
+          type: 'line',
+          data: {
+              labels: xlabels,
+              datasets: [
+                {
+                  label: 'Nithin Wealth',
+                  data: ySugaDaddy,
+                  backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                  borderColor: 'rgba(255, 99, 132, 1)',
+                  fill: false,
+                  borderWidth: 1
+              }]
+          },
+      });
+    }
+
+    //Parsing CSV data
+    //To add new players, simply add a column and a const for their avatar name
+    async function getData() {
+      const response = await fetch('data.csv');
+      const data = await response.text();
+
+
+      const table = data.split('\n').slice(1);
+      table.forEach(row=> {
+          const columns = row.split(',');
+          const gameNo = columns[0];
+          xlabels.push(gameNo);
+          const Sanjay = columns[1];
+          ySanjay.push(Sanjay)
+          const thamarmo = columns[2];
+          ythamarmo.push(thamarmo)
+          const Abhishek = columns[3];
+          yAbhishek.push(Abhishek)
+          const Shishtaouk = columns[4];
+          yShishtaouk.push(Shishtaouk)
+          const NipPincher = columns[5];
+          yNipPincher.push(NipPincher)
+          const Diraj = columns[6];
+          yDiraj.push(Diraj)
+          const SugaDaddy = columns[7];
+          ySugaDaddy.push(SugaDaddy)
+          const Spartan = columns[8];
+          ySpartan.push(Spartan)
+          console.log(gameNo, Sanjay);
+      });
+    }
   </script>
 </body>
 </html>
