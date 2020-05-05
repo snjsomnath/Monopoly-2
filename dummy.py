@@ -1,21 +1,20 @@
-import glob
-import os
 import pandas as pd
-import sys
+import csv
+rankCSV = "rank.csv"
+players = ["Sanjay", "thamarmo", "Abhishek", "Shishtaouk", "NipPincher", "Diraj", "SugaDaddy", "Spartan"]
+data_r = pd.read_csv(rankCSV)
+winRatio = []
+wins
 
 
-check = pd.read_csv("latest.csv")
-latest_file = check.iloc[0,0]
+for i in players:
+    gamesPlayed= data_r[i].value_counts().sum()
+    if 1 in data_r[i].unique():
+        win = data_r[i].value_counts()[1]
+        wr = ((win/gamesPlayed*100).round(2))
+        winRatio.append(wr)
+    else:
+        winRatio.append(0)
+print(winRatio)
 
-def newest(path):
-    files = os.listdir(path)
-    paths = [os.path.join(path, basename) for basename in files]
-    return max(paths, key=os.path.getctime)
-print(newest("resources"))
-latest = pd.DataFrame([newest("resources")])
-latest.to_csv(r"latest.csv",index = False)
-if latest_file == newest("resources"):
-    sys.exit('Item has been appended')
 
-else:
-    print("This will be appended")

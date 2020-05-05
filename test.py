@@ -129,4 +129,7 @@ ranks = [(len(data_r["Game No"])+1),rank_1,rank_2,rank_3,rank_4]
 ocrRank = pd.DataFrame([ranks],columns=names)
 mergedData_rank = pd.concat([data_r, ocrRank], join = "outer")
 mergedData_rank.to_csv(rankCSV, index=False)
+
+#Calculate wins and win-ratio
+data_r.heads
 print("Run complete")
