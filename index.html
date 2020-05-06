@@ -58,41 +58,20 @@
           <canvas id="thamarmoChart" height=100%></canvas>
           <canvas id="AbhishekChart" height=100%></canvas>
           <canvas id="ShishtaoukChart" height=100%></canvas>
-        </div>
-        <div class="card">
-          <div class="flourish-embed flourish-network" data-src="visualisation/2225076" data-url="https://flo.uri.sh/visualisation/2225076/embed">
-            <script src="https://public.flourish.studio/resources/embed.js">
-            </script>
-            </div>
-        </div>
+        </div>        
 
         <div class="card">
           <canvas id="NipPincherChart" height=100%></canvas>
           <canvas id="SpartanChart" height=100%></canvas>
           <canvas id="DirajChart" height=100%></canvas>
           <canvas id="SugaDaddyChart" height=100%></canvas>
-        </div>
-
-        <div class="card">
-          <div class="flourish-embed flourish-chord diagram" data-src="visualisation/2212721" data-url="https://flo.uri.sh/visualisation/2212721/embed">
-            <script src="https://public.flourish.studio/resources/embed.js">
-            </script>
-            </div>
-        </div>
+        </div>       
         
         <div class="card">
-          <canvas id="rankTracking" height=190%></canvas>
-        </div>
-
-        <div class="card">
-          <canvas id="wealthTracking" height=190%></canvas>
-          
-        </div>
-        <div class="card">
-          <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/2165035" data-url="https://flo.uri.sh/visualisation/2165035/embed">
-            <script src="https://public.flourish.studio/resources/embed.js">
-            </script>
-            </div>
+          <canvas id="rankTracking" height=100%></canvas>
+          <canvas id="wealthTracking" height=100%></canvas>
+          <canvas id="winRatio" height=100%></canvas>
+          <canvas id="winRatio" height=100%></canvas>
         </div>
 
       </div>
@@ -603,6 +582,54 @@
             }
           }
       });
+
+
+
+      const ctx11 = document.getElementById('winRatio').getContext('2d');
+      const myChart11 = new Chart(ctx11, {
+          type: 'bar',
+          data: {
+              labels: names,
+              datasets: [{
+                label:'wins',
+                data: wins,
+                backgroundColor: 'crimson',
+                borderColor: 'crimson',
+              },{
+                label: 'losses',
+                data: lost,
+                backgroundColor: 'coral',
+                borderColor: 'coral',
+              }]
+          },
+          options: {
+            title:{
+              display: true,
+              text: 'Win Ratio'
+            },
+            legend : {
+              position: 'right',
+              labels:{
+                boxWidth: 2,
+                fontSize: 10,
+                padding: 5
+              }
+            },
+            scales: {
+              yAxes: [{
+                stacked: true,
+                ticks: {
+                  fontSize: 10
+                }
+              }],
+              xAxes: [{
+                ticks: {
+                  fontSize: 10
+                }
+              }]
+            }
+          }
+      });
     }
 
 
@@ -663,6 +690,27 @@
           const Spartan_r = columns_r[8];
           ySpartan_r.push(Spartan_r)
           console.log(gameNo_r, Sanjay_r);
+      });
+
+
+      const response_r = await fetch('winLoss.csv');
+      const rank = await response_r.text();
+
+
+      const table_r = rank.split('\n').slice(1);
+      table_r.forEach(row=> {
+          const columns_wr = row.split(',');
+          const names = columns_wr[0];
+          names.push(names);
+          const wins = columns_r[1];
+          wins.push(wins)
+          const played = columns_r[2];
+          played.push(played)
+          const lost = columns_r[3];
+          lost.push(lost)
+          const winLoss = columns_r[4];
+          winLoss.push(winLoss)
+          console.log(names, winLoss);
       });
     }
   </script>
