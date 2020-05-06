@@ -9,7 +9,7 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <link href='https://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body style="margin: 10px;">
   <div class="grid-container">
     <header class="header">
       <h1>Monopoly Dashboard</h1>
@@ -28,7 +28,7 @@
           flex-direction: column;
           align-items: center;
           width: auto;
-          background-color: #ffffff;
+          background-color: #324354;
           margin-bottom: 10px;
           -webkit-column-break-inside: avoid;
           padding: 10px;
@@ -71,7 +71,7 @@
           <canvas id="rankTracking" height=100%></canvas>
           <canvas id="wealthTracking" height=100%></canvas>
           <canvas id="winRatio" height=100%></canvas>
-          <canvas id="winRatio" height=100%></canvas>
+          <canvas id="winVSnames" height=100%></canvas>
         </div>
 
       </div>
@@ -103,7 +103,15 @@
     const ySpartan_r = [];
     const yDiraj_r = [];
     const ySugaDaddy_r = [];
-    const lineColor = 'rgba(0, 229, 177, 1)'
+    const xlabels_wr = [];
+    const ynames = [];
+    const ywins = [];
+    const yplayed = [];
+    const ylost = [];
+    const ywinLoss = [];
+    const WR = [];
+    const LR = [];
+    const lineColor = 'aquamarine'
     const bgColor = 'rgba(77, 77, 77, 1)'
 
 
@@ -129,7 +137,8 @@
           options:{
             title:{
               display: true,
-              text: 'Sanjay Wealth'
+              text: 'Sanjay Wealth',
+              fontColor : "white"
             },
             legend:{
               display: false
@@ -138,11 +147,13 @@
               yAxes: [{
                 stacked: false,
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }],
               xAxes: [{
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }]
@@ -167,7 +178,8 @@
           options:{
             title:{
               display: true,
-              text: 'Thamar Wealth'
+              text: 'Thamar Wealth',
+              fontColor : "white"
             },
             legend:{
               display: false
@@ -176,11 +188,13 @@
               yAxes: [{
                 stacked: false,
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }],
               xAxes: [{
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }]
@@ -205,7 +219,8 @@
           options:{
             title:{
               display: true,
-              text: 'Abhishek Wealth'
+              text: 'Abhishek Wealth',
+              fontColor : "white"
             },
             legend:{
               display: false
@@ -214,11 +229,13 @@
               yAxes: [{
                 stacked: false,
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }],
               xAxes: [{
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }]
@@ -243,7 +260,8 @@
           options:{
             title:{
               display: true,
-              text: 'Shishir Wealth'
+              text: 'Shishir Wealth',
+              fontColor : "white"
             },
             legend:{
               display: false
@@ -252,11 +270,13 @@
               yAxes: [{
                 stacked: false,
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }],
               xAxes: [{
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }]
@@ -281,7 +301,8 @@
           options:{
             title:{
               display: true,
-              text: 'Nivin Wealth'
+              text: 'Nivin Wealth',
+              fontColor : "white"
             },
             legend:{
               display: false
@@ -290,11 +311,13 @@
               yAxes: [{
                 stacked: false,
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }],
               xAxes: [{
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }]
@@ -319,7 +342,8 @@
           options:{
             title:{
               display: true,
-              text: 'Hrideek Wealth'
+              text: 'Hrideek Wealth',
+              fontColor : "white"
             },
             legend:{
               display: false
@@ -328,11 +352,13 @@
               yAxes: [{
                 stacked: false,
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }],
               xAxes: [{
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }]
@@ -357,7 +383,8 @@
           options:{
             title:{
               display: true,
-              text: 'Diraj Wealth'
+              text: 'Diraj Wealth',
+              fontColor : "white"
             },
             legend:{
               display: false
@@ -366,11 +393,13 @@
               yAxes: [{
                 stacked: false,
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }],
               xAxes: [{
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }]
@@ -395,7 +424,8 @@
           options:{
             title:{
               display: true,
-              text: 'Nithin Wealth'
+              text: 'Nithin Wealth',
+              fontColor : "white"
             },
             legend:{
               display: false
@@ -404,11 +434,13 @@
               yAxes: [{
                 stacked: false,
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }],
               xAxes: [{
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }]
@@ -437,8 +469,8 @@
               },{
                 label: 'Abhishek',
                 data: yAbhishek_r,
-                backgroundColor: 'darkslateblue',
-                borderColor: 'darkslateblue',
+                backgroundColor: 'white',
+                borderColor: 'white',
                 borderWidth: 1,
                 fill: false,
               },{
@@ -481,12 +513,14 @@
           options: {
             title:{
               display: true,
-              text: 'Rank Tracking'
+              text: 'Rank Tracking',
+              fontColor : "white"
             },
             legend : {
               position: 'right',
               labels:{
                 boxWidth: 3,
+                fontColor :"#ffffff",
                 fontSize: 10,
                 padding: 5
               }
@@ -495,11 +529,13 @@
               yAxes: [{
                 stacked: false,
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }],
               xAxes: [{
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }]
@@ -525,8 +561,8 @@
               },{
                 label: 'Abhishek',
                 data: yAbhishek,
-                backgroundColor: 'darkslateblue',
-                borderColor: 'darkslateblue',
+                backgroundColor: 'white',
+                borderColor: 'white',
               },{
                 label: 'Shishir',
                 data: yShishtaouk,
@@ -557,11 +593,13 @@
           options: {
             title:{
               display: true,
-              text: 'Wealth Tracking'
+              text: 'Wealth Tracking',
+              fontColor : "white"
             },
             legend : {
               position: 'right',
               labels:{
+                fontColor :"#ffffff",
                 boxWidth: 2,
                 fontSize: 10,
                 padding: 5
@@ -571,12 +609,14 @@
               yAxes: [{
                 stacked: false,
                 ticks: {
-                  fontSize: 10
+                  fontSize: 10,
+                  fontColor : "white"
                 }
               }],
               xAxes: [{
                 ticks: {
-                  fontSize: 10
+                  fontSize: 10,
+                  fontColor : "white"
                 }
               }]
             }
@@ -589,27 +629,29 @@
       const myChart11 = new Chart(ctx11, {
           type: 'bar',
           data: {
-              labels: names,
+              labels: xlabels_wr,
               datasets: [{
                 label:'wins',
-                data: wins,
-                backgroundColor: 'crimson',
-                borderColor: 'crimson',
+                data: WR,
+                backgroundColor: 'aquamarine',
+                borderColor: 'aquamarine',
               },{
                 label: 'losses',
-                data: lost,
-                backgroundColor: 'coral',
-                borderColor: 'coral',
+                data: LR,
+                backgroundColor: 'crimson',
+                borderColor: 'crimson',
               }]
           },
           options: {
             title:{
               display: true,
-              text: 'Win Ratio'
+              text: 'Win Ratio',
+              fontColor : "white"
             },
             legend : {
               position: 'right',
               labels:{
+                fontColor :"#ffffff",
                 boxWidth: 2,
                 fontSize: 10,
                 padding: 5
@@ -619,11 +661,57 @@
               yAxes: [{
                 stacked: true,
                 ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }],
               xAxes: [{
+                stacked: true,
                 ticks: {
+                  fontColor :"#ffffff",
+                  fontSize: 10
+                }
+              }]
+            }
+          }
+      });
+
+
+
+      const ctx12 = document.getElementById('winVSnames').getContext('2d');
+      const myChart12 = new Chart(ctx12, {
+          type: 'bar',
+          data: {
+              labels: xlabels_wr,
+              datasets: [{
+                label:'wins',
+                data: ywins,
+                backgroundColor: ['crimson','coral','white','darksalmon','deeppink','aquamarine','darkmargenta','lightblue']
+              }]
+          },
+          options: {
+            title:{
+              display: true,
+              text: 'Wins',
+              fontColor : "white"
+            },
+            legend : {
+              
+              display: false
+              
+            },
+            scales: {
+              yAxes: [{
+                stacked: true,
+                ticks: {
+                  fontColor :"#ffffff",
+                  fontSize: 10,
+                }
+              }],
+              xAxes: [{
+                stacked: true,
+                ticks: {
+                  fontColor :"#ffffff",
                   fontSize: 10
                 }
               }]
@@ -693,24 +781,37 @@
       });
 
 
-      const response_r = await fetch('winLoss.csv');
-      const rank = await response_r.text();
+      const response_wr = await fetch('winLoss.csv');
+      const wr = await response_wr.text();
 
 
-      const table_r = rank.split('\n').slice(1);
-      table_r.forEach(row=> {
+      const table_wr = wr.split('\n').slice(1);
+      table_wr.forEach(row=> {
           const columns_wr = row.split(',');
-          const names = columns_wr[0];
-          names.push(names);
-          const wins = columns_r[1];
-          wins.push(wins)
-          const played = columns_r[2];
-          played.push(played)
-          const lost = columns_r[3];
-          lost.push(lost)
-          const winLoss = columns_r[4];
-          winLoss.push(winLoss)
-          console.log(names, winLoss);
+          const names_wr = columns_wr[0];
+          xlabels_wr.push(names_wr);
+          const wins = columns_wr[1];
+          ywins.push(wins)
+          const played = columns_wr[2];
+          yplayed.push(played)
+          const lost = columns_wr[3];
+          ylost.push(lost)
+          const winLoss = columns_wr[4];
+          ywinLoss.push(winLoss)
+          console.log(xlabels_wr, ywinLoss);
+
+
+
+          for (var i = 0; i < ywins.length; i++) {
+            WR.push(Math.round(ywins[i] / yplayed[i]*100));
+          }
+
+
+          for (var i = 0; i < ywins.length; i++) {
+            LR.push(Math.round(ylost[i] / yplayed[i]*100));
+          }
+
+
       });
     }
   </script>

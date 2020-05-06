@@ -7,6 +7,7 @@ winRatio = []
 wins =[]
 played = []
 losses = []
+lossRatio = []
 
 for i in players:
     gamesPlayed= data_r[i].value_counts().sum()
