@@ -8,7 +8,7 @@ A screenshot of the game results is added to the resources folder and the script
 Dashboard Site can be viewed [here](https://snjsomnath.github.io/Monopoly-2/)  
 
 ![jpg](media/GSHEET_01.jpg)
-![jpg](media/GSHEET_01.jpg)
+![jpg](media/GSHEET_02.jpg)
 
 GSheets Dashboard can be viewed [here](https://snjsomnath.github.io/Monopoly-GoogleSheets-Dashboard/)
 
