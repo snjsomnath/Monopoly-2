@@ -1,11 +1,16 @@
 # Monopoly OCR
 
 An Open-CV project to create a dashboard for the monopoly game. 
-A screenshot of the game results is added to the resources folder and the script runs an OCR using Open-CV and pyTesseract.
+A screenshot of the game results is added to the resources folder and the script runs an OCR using Open-CV and pyTesseract.  
 
 ![jpg](media/img_site.jpg)
 
-Dashboard Site can be viewed [here](https://snjsomnath.github.io/Monopoly-2/)
+Dashboard Site can be viewed [here](https://snjsomnath.github.io/Monopoly-2/)  
+
+![jpg](media/GSHEET_01.jpg)
+![jpg](media/GSHEET_01.jpg)
+
+GSheets Dashboard can be viewed [here](https://snjsomnath.github.io/Monopoly-GoogleSheets-Dashboard/)
 
 ```python
 import pytesseract
